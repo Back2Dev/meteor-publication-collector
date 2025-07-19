@@ -1,5 +1,7 @@
 # Publication Collector
 
+Upgraded for Meteor 3.0+
+
 [![CircleCI](https://img.shields.io/circleci/project/johanbrook/meteor-publication-collector.svg?maxAge=2592000)]()
 
 This package makes testing publications in Meteor easier and nicer.
@@ -35,29 +37,29 @@ This package is server-only and can't be imported on the client.
 ```js
 // server/myPublication.test.js
 
-import { PublicationCollector } from "meteor/johanbrook:publication-collector";
+import { PublicationCollector } from "meteor/johanbrook:publication-collector"
 
 describe("myPublication", function () {
   it("should publish 10 documents", function (done) {
-    const collector = new PublicationCollector({ userId: Random.id() });
+    const collector = new PublicationCollector({ userId: Random.id() })
 
     collector.collect(
       "myPublication",
       firstPublicationArg,
       secondPublicationArg,
       (collections) => {
-        assert.equal(collections.myCollection.length, 10);
-        done();
+        assert.equal(collections.myCollection.length, 10)
+        done()
       }
-    );
-  });
-});
+    )
+  })
+})
 ```
 
 ### PublicationCollector
 
 ```js
-const collector = new PublicationCollector(opts);
+const collector = new PublicationCollector(opts)
 ```
 
 `opts` may have the following attributes:
@@ -87,9 +89,9 @@ collector.collect(
   firstPublicationArg,
   secondPublicationArg,
   (collections) => {
-    assert.equal(collections.myCollection.length, 10);
+    assert.equal(collections.myCollection.length, 10)
   }
-);
+)
 ```
 
 or use Promises:
